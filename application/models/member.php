@@ -2,8 +2,14 @@
 class Member extends CI_Model {
 
 
-    var $check=false; //Create a variable for checking is already member or not
+    var $check=false; //Create a variable for checking if it is already member or not
     var $varified=false;// check if created member is varified or not
+
+    public function validate(){
+      // this function is used to validate all the input field in create member
+
+
+    }
    public /**
    * 
    */
@@ -19,18 +25,20 @@ class Member extends CI_Model {
          # code...
 
          // create member using database
-            $this->create_member;
+            $this->create_member();
       }
       }
 
 
       public function create_member(){
+
          //create member in db
 
-         if (condition) {//check validation is sucessful or not
+        $this->validate()
+
+         if (condition) {//check validation is sucessful or not if true create member else give eroor message.
             # code...
-            //1. username should be of more than 4 character and les than 12
-            //2. no field should be blank or empty
+          
             //
 
          }
