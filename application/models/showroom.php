@@ -90,7 +90,7 @@
 	     public function check_model($model)
 	     {
 
-	     		if(exists(array('model_name'=>$model)))
+	     		if($this->model_exists($model) 
 	     		{
 	     			 throw new exception('This $model model exists in the showroom');
 	     		}
@@ -100,6 +100,14 @@
 	     			 throw new exception('This $model model  does not exists in the showroom');
 	     		}
 
+	     }
+
+	     public function model_exists($model)
+	     {
+	     	if($this->model_name==$model)
+	     	{
+	     		return true;
+	     	}
 	     }
 
 
