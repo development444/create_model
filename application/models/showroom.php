@@ -90,7 +90,7 @@
 	     public function check_model($model)
 	     {
 
-	     		if($this->model_exists($model) 
+	     		if($this->model_exists($model) )
 	     		{
 	     			 throw new exception('This $model model exists in the showroom');
 	     		}
