@@ -1,15 +1,11 @@
 <?php
 class Member extends CI_Model {
-
-    public var $f_name=$this->input->post('firstname');// declaring variables
-    public var $l_name=this->input->post('lastname');
-    public var $email=this->input->post('email');
    
 
 
     public var $check=false; //Create a variable for checking if it is already member or not
     public var $varified=false;// check if created member is varified or not
-    public var $deleted=false;
+    public var $deleted=false;// check if member is alredy deleted or not
 
     public function validate(){
       // this function is used to validate all the input field in create member
@@ -44,6 +40,22 @@ class Member extends CI_Model {
                 $this->deleted = true;
               }
         }
+
+
+
+    public function send_confirm_mail(){//send confirm mail
+
+    } 
+    public function check_confirmed_status(){
+      if ($confirm=true) {
+        //used for further acess of system
+        # code...
+      }
+      else{
+        echo "plese confirm email";
+        $this->send_confirm_mail();
+      }
+    }   
    public /**
    * 
    */
@@ -64,19 +76,20 @@ class Member extends CI_Model {
       }
 
 
-      public function create_member(){
+      public function create_member($array){
 
          //create member in db
        
 
 
-        $this->validate()
+        $this->validate($array)
 
          if (condition is true) {//check validation is sucessful or not if true create member else give eroor message.
             # code...
           
             //
            $member= new member();// add all fields  like f_name,l_name and email into new member
+           $this->send_confirm_mail();
 
          }
 
