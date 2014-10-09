@@ -3,14 +3,14 @@
  class showroom 
  {
  		private $showroom_id;
- 		private$showroom_name;
+ 		private $showroom_name;
  		private $model_name;
  		private $location;
  		private $is_deleted;
  		private $is_active;
 
 
- 		public function set_showroomname($name)
+ 		public function set_showroom_name($name)
  		 {
 
 		    	$this->showroom_name = trim($name);
@@ -22,7 +22,15 @@
 				
 	    }
 
-	    public function set_showroomlocation($name)
+	    public function get_showroom_name()
+	    {
+	    		return $show->showroom_name;
+
+
+
+			}
+
+	    public function set_location($name)
  		 {
 
 		    	$this->location = trim($name);
@@ -34,7 +42,7 @@
 				
 	    }
 
-	    public function set_modelname($name)
+	    public function set_model_name($name)
  		 {
 
 		    	$this->model_name = trim($name);
@@ -118,9 +126,9 @@
 
 		$showroom = new showroom;
 
-		$showroom->name = $this->set_showroomname($params[name]);
-		$showroom->location = $this->set_showroomlocation($params[location]);
-		$showroom->model_name = $this->set_modelname($params[model_name]);
+		$showroom->name = $this->set_showroom_name($params[name]);
+		$showroom->location = $this->set_location($params[location]);
+		$showroom->model_name = $this->set_model_name($params[model_name]);
 		$course->is_active = 1;
 		$course->is_deleted = 0;
 		
